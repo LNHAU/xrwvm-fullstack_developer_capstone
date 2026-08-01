@@ -23,7 +23,7 @@ def get_request(endpoint, **kwargs):
         # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
         return response.json()
-    except Exception as err:
+    except Exception:
         # If any error occurs
         print("Network exception occurred")
 
@@ -43,12 +43,12 @@ def analyze_review_sentiments(text):
 
 def post_review(data_dict):
     # Add code for posting review
-    # The dictionary would take all the values required for the dealership review
-    # as key-value, pair.
+    # The dictionary would take all the values required for the dealership
+    # review as key-value, pair.
     request_url = backend_url+"/insert_review"
     try:
         response = requests.post(request_url, json=data_dict)
         print(response.json())
         return response.json()
-    except Exception as err:
+    except Exception:
         print("Network exception occurred")
